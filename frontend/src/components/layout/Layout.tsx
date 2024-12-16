@@ -1,6 +1,7 @@
 import { ReactNode } from "react";
 import { Header } from "../header/Header.tsx";
 import { GlobalStyle } from "./GlobalStyles.tsx";
+import styled from "styled-components";
 
 interface ILayoutProps {
   children?: ReactNode;
