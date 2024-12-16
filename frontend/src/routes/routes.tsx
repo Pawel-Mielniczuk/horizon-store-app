@@ -1,11 +1,11 @@
 import { createBrowserRouter } from "react-router-dom";
-import { ProductsPage } from "../pages/ProductsPage";
 import { SellPage } from "../pages/SellPage";
+import { Home } from "../pages/Home.tsx";
 
 export const router = createBrowserRouter([
   {
     path: "/",
-    element: <ProductsPage />,
+    element: <Home />,
   },
   {
     path: "/sell",
