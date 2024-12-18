@@ -1,8 +1,9 @@
 import { gql, useQuery } from "@apollo/client";
+import { ProductsQueryResponse } from "../types/types.ts";
 
 const ALL_PRODUCTS_QUERY = gql`
-  query ALL_PRODUCTS_QUERY($take: Int, $skip: Int = 0) {
-    products(take: $take, skip: $skip) {
+  query ALL_PRODUCTS_QUERY {
+    products {
       id
       name
       price
@@ -18,7 +19,8 @@ const ALL_PRODUCTS_QUERY = gql`
 `;
 
 export function ProductsPage() {
-  const { data, error, loading } = useQuery(ALL_PRODUCTS_QUERY);
+  const { data, error, loading } =
+    useQuery<ProductsQueryResponse>(ALL_PRODUCTS_QUERY);
 
   console.log("data", data);
   if (loading) return <p>Loading...</p>;
