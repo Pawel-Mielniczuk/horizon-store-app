@@ -19,6 +19,10 @@ const ALL_PRODUCTS_QUERY = gql`
 
 export function ProductsPage() {
   const { data, error, loading } = useQuery(ALL_PRODUCTS_QUERY);
+
   console.log("data", data);
+  if (loading) return <p>Loading...</p>;
+  if (error) return <p>Sth has gone wrong {error.message}</p>;
+
   return <div>Products Page</div>;
 }
