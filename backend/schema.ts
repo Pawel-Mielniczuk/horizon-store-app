@@ -2,8 +2,17 @@ import { list } from "@keystone-6/core";
 import { allowAll } from "@keystone-6/core/access";
 import { text, relationship, password, timestamp, select, integer } from "@keystone-6/core/fields";
 import { document } from "@keystone-6/fields-document";
+import "dotenv/config";
 
 import { type Lists } from ".keystone/types";
+import { cloudinaryImage } from "@keystone-6/cloudinary";
+
+export const cloudinary = {
+  cloudName: process.env.CLOUDINARY_CLOUD_NAME!,
+  apiKey: process.env.CLOUDINARY_KEY!,
+  apiSecret: process.env.CLOUDINARY_SECRET!,
+  folder: "sportstore",
+};
 
 export const lists = {
   User: list({
@@ -44,6 +53,21 @@ export const lists = {
         },
       }),
       price: integer(),
+    },
+  }),
+  ProductImage: list({
+    access: allowAll,
+    fields: {
+      image: cloudinaryImage({
+        cloudinary,
+        label: "Source",
+      }),
+      altText: text(),
+    },
+    ui: {
+      listView: {
+        initialColumns: ["image", "altText", "product"],
+      },
     },
   }),
 } satisfies Lists;
