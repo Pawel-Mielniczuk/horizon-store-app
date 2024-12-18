@@ -11,15 +11,16 @@
     "test": "vitest"
   },
   "dependencies": {
+    "@apollo/client": "^3.11.10",
+    "@types/apollo-upload-client": "^18.0.0",
     "@types/react-router-dom": "^5.3.3",
+    "apollo-link-error": "^1.1.13",
+    "apollo-upload-client": "^18.0.1",
+    "graphql": "^16.9.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "react-router-dom": "^7.0.2",
-    "styled-components": "^6.1.13",
-    "@apollo/client": "^3.11.10",
-    "apollo-link-error": "^1.1.13",
-    "apollo-upload-client": "^18.0.1",
-    "graphql": "^16.9.0"
+    "styled-components": "^6.1.13"
   },
   "devDependencies": {
     "@eslint/js": "^9.15.0",
